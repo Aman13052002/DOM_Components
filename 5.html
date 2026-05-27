@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    body{
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #1f1c4e;
+    }
+
+    textarea{
+      width: 300px;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    p{
+      margin-top: 10px;
+      font-weight: bold;
+      color: white;
+    }
+    h2{
+        color: white;
+    }
+  </style>
+</head>
+<body>
+    <h2>Textarea Character Counter</h2>
+    <textarea id="message" maxlength="100" placeholder="Type here..."></textarea>
+    <p>Remaining Characters: <span id="count">100</span></p>
+    <script>
+        const textarea = document.getElementById('message');
+        const count = document.getElementById('count');
+        let maxlength = 100;
+        textarea.addEventListener('input',()=>{
+            let remaining = maxlength - textarea.value.length;
+            count.textContent = remaining;
+        });
+
+    </script>
+</body>
+</html>

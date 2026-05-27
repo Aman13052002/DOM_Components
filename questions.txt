@@ -1,0 +1,409 @@
+Here are some good **DOM Manipulation practice questions** arranged from **Easy → Medium → Hard** so you can improve step by step with JavaScript.
+
+---
+
+# Easy Level DOM Questions
+
+## 1. Change Text on Button Click
+
+Create a button. When clicked, change the text of a `<p>` element.
+
+### Concepts
+
+* `getElementById`
+* `innerText`
+* `onclick`
+
+---
+
+## 2. Change Background Color
+
+Create buttons for Red, Blue, Green. Clicking a button changes the page background color.
+
+### Concepts
+
+* `style.backgroundColor`
+* Event handling
+
+---
+
+## 3. Show/Hide Password
+
+Create a password input and a checkbox/button to show or hide the password.
+
+### Concepts
+
+* `input.type`
+* Toggle logic
+
+---
+
+## 4. Counter App
+
+Create:
+
+* Increment button
+* Decrement button
+* Reset button
+
+### Concepts
+
+* Updating DOM dynamically
+* Variables + DOM
+
+---
+
+## 5. Character Counter
+
+Display remaining characters while typing in a textarea.
+
+### Concepts
+
+* `input` event
+* `value.length`
+
+---
+
+## 6. Digital Clock
+
+Display current time updating every second.
+
+### Concepts
+
+* `setInterval`
+* `Date()`
+
+---
+
+## 7. Toggle Dark Mode
+
+Switch webpage between dark and light mode.
+
+### Concepts
+
+* `classList.toggle`
+* CSS classes
+
+---
+
+# Medium Level DOM Questions
+
+## 8. To-Do List App
+
+Features:
+
+* Add task
+* Delete task
+* Mark complete
+
+### Concepts
+
+* `createElement`
+* `appendChild`
+* Event listeners
+
+---
+
+## 9. Image Slider / Carousel
+
+Create previous and next buttons to change images.
+
+### Concepts
+
+* Arrays
+* Updating image `src`
+
+---
+
+## 10. Accordion FAQ
+
+Click a question to show/hide answer.
+
+### Concepts
+
+* `nextElementSibling`
+* `display:none`
+
+---
+
+## 11. Live Search Filter
+
+Filter list items while typing in search box.
+
+### Concepts
+
+* `filter`
+* `includes`
+* Dynamic rendering
+
+---
+
+## 12. Modal Popup
+
+Create a popup modal with:
+
+* Open button
+* Close button
+* Click outside to close
+
+### Concepts
+
+* Event bubbling
+* Styling with classes
+
+---
+
+## 13. Form Validation
+
+Validate:
+
+* Empty fields
+* Email format
+* Password length
+
+### Concepts
+
+* Form events
+* Regex
+* Prevent default submit
+
+---
+
+## 14. Dynamic Table Generator
+
+Take rows/columns input from user and generate table dynamically.
+
+### Concepts
+
+* Nested loops
+* Table DOM creation
+
+---
+
+## 15. Tabs Component
+
+Create tabs like:
+
+* Home
+* About
+* Contact
+
+Clicking tab changes content.
+
+### Concepts
+
+* Active classes
+* Conditional rendering
+
+---
+
+# Hard Level DOM Questions
+
+## 16. Drag and Drop Kanban Board
+
+Columns:
+
+* Todo
+* In Progress
+* Done
+
+Drag tasks between columns.
+
+### Concepts
+
+* Drag events
+* Data transfer API
+
+---
+
+## 17. Infinite Scroll
+
+Load more items automatically when reaching bottom.
+
+### Concepts
+
+* Scroll events
+* Window position
+
+---
+
+## 18. Memory Card Game
+
+Flip cards and match pairs.
+
+### Concepts
+
+* Complex event handling
+* Timers
+* Arrays
+
+---
+
+## 19. Custom Video Player
+
+Create:
+
+* Play/Pause
+* Volume control
+* Progress bar
+* Fullscreen
+
+### Concepts
+
+* Media APIs
+
+---
+
+## 20. Mini Notes App with Local Storage
+
+Features:
+
+* Add note
+* Delete note
+* Save permanently
+
+### Concepts
+
+* `localStorage`
+* JSON methods
+
+---
+
+## 21. Expense Tracker
+
+Track:
+
+* Income
+* Expenses
+* Balance
+
+Store data locally.
+
+### Concepts
+
+* CRUD operations
+* DOM rendering
+
+---
+
+## 22. Virtual Keyboard
+
+Build keyboard UI and type into input field by clicking keys.
+
+### Concepts
+
+* Keyboard events
+* Dynamic buttons
+
+---
+
+## 23. Weather App UI
+
+Fetch weather and display dynamically.
+
+### Concepts
+
+* Fetch API
+* Async DOM updates
+
+---
+
+## 24. Quiz App
+
+Features:
+
+* Multiple questions
+* Timer
+* Score calculation
+
+### Concepts
+
+* State management
+* Dynamic rendering
+
+---
+
+## 25. Trello Clone
+
+Advanced project involving:
+
+* Drag-drop
+* Editable cards
+* Persistence
+* Dynamic columns
+
+### Concepts
+
+* Full DOM mastery
+
+---
+
+# Advanced DOM Concepts You Should Practice
+
+After solving the above, practice these separately:
+
+* Event Delegation
+* Event Bubbling & Capturing
+* Debouncing & Throttling
+* Mutation Observer
+* Intersection Observer
+* Local Storage & Session Storage
+* Creating Elements Dynamically
+* Removing/Replacing Elements
+* `querySelector` vs `getElementById`
+* Traversing DOM (`parentNode`, `children`, `closest`)
+* Forms & Validation
+* Keyboard Events
+* Mouse Events
+
+---
+
+# Best Practice Path
+
+Recommended order:
+
+1. Text/Style manipulation
+2. Event handling
+3. Dynamic elements
+4. Forms
+5. Components (tabs/modal)
+6. CRUD apps
+7. Drag-drop
+8. API + DOM
+9. Full projects
+
+---
+
+# Mini Project Ideas
+
+## Beginner
+
+* BMI Calculator
+* Stopwatch
+* Color Picker
+* Calculator
+
+## Intermediate
+
+* Music Player
+* Recipe Finder
+* Movie Search App
+
+## Advanced
+
+* Chat App UI
+* Whiteboard App
+* Spreadsheet Clone
+* VS Code Clone UI
+
+---
+
+# Challenge Websites
+
+You can practice more DOM questions on:
+
+* [Frontend Mentor](https://www.frontendmentor.io?utm_source=chatgpt.com)
+* [JavaScript30](https://javascript30.com?utm_source=chatgpt.com)
+* [Codewars](https://www.codewars.com?utm_source=chatgpt.com)
+* [LeetCode JavaScript Problems](https://leetcode.com/problemset/javascript/?utm_source=chatgpt.com)
+* [Frontend Practice](https://www.frontendpractice.com?utm_source=chatgpt.com)
