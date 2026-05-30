@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: aliceblue;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .digital{
+            height: 400px;
+            width: 500px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgb(163, 163, 163);
+            gap: 20px;
+        }
+        .box{
+            font-size: 80px;
+            font-weight: bold;
+        }
+        .button{
+            padding: 20px;
+            margin: 10px;
+            background-color: cornflowerblue;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 3px 3px 3px rgb(147, 211, 251);
+            font-size: 20px;
+        }
+        .data{
+            display: flex;
+            /* flex: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="digital">
+        <div class="data">
+            <div class="box"><span class="minutes">00</span>:</div>
+            <div class="box"><span class="seconds">00</span></div>
+        </div>
+        <div class="btn">
+            <button class="button" onclick="startClock()">Start</button>
+            <button class="button" onclick="stopClock()">Stop</button>
+        </div>
+    </div>
+    <script>
+        const minutes = document.querySelector('.minutes');
+        const seconds = document.querySelector('.seconds');
+        let interval = null;
+        let min = 0;
+        let sec = 0;
+
+        function updateTime(){
+            minutes.textContent = String(min).padStart(2,'0');
+            seconds.textContent = String(sec).padStart(2,'0');
+        }
+
+        function startClock(){
+            if(interval!=null) return; //clock is in a running state
+            interval = setInterval(()=>{
+                sec++;
+                if(sec==60){
+                    min++;
+                    sec = 0;
+                }
+                updateTime();
+            },10)
+        }
+        function stopClock(){
+            clearInterval(interval);
+            interval = null;
+        }
+    </script>
+</body>
+</html>
