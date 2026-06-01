@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordian</title>
+    <style>
+        .question {
+            background: #eee;
+            padding: 12px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .answer {
+            display: none;
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq">
+        <div class="question">What is JavaScript?</div>
+        <div class="answer">  JavaScript is a programming language used to make web pages interactive.</div>
+    </div>
+    <div class="faq">
+        <div class="question">What is JavaScript?</div>
+        <div class="answer">  JavaScript is a programming language used to make web pages interactive.</div>
+    </div>
+    <div class="faq">
+        <div class="question">What is JavaScript?</div>
+        <div class="answer">  JavaScript is a programming language used to make web pages interactive.</div>
+    </div>
+    <div class="faq">
+        <div class="question">What is JavaScript?</div>
+        <div class="answer">  JavaScript is a programming language used to make web pages interactive.</div>
+    </div>
+    <div class="faq">
+        <div class="question">What is JavaScript?</div>
+        <div class="answer">  JavaScript is a programming language used to make web pages interactive.</div>
+    </div>
+    <script>
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question=>{
+            question.addEventListener('click',()=>{
+                const answer = question.nextElementSibling;
+                if(answer.style.display==="block"){
+                    answer.style.display = "none";
+                }else{
+                    answer.style.display = "block";
+                }
+            })
+        })
+    </script>
+</body>
+</html>
