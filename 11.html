@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Search Box</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input {
+            width: 250px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            padding: 8px;
+            margin: 5px 0;
+            background: #f4f4f4;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Search Filter</h2>
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search..."
+    >
+
+    <ul id="itemList"></ul>
+
+    <script>
+        const items = [
+            "Apple",
+            "Banana",
+            "Orange",
+            "Mango",
+            "Grapes",
+            "Pineapple",
+            "Watermelon",
+            "Strawberry"
+        ];
+
+        const searchBox = document.getElementById("searchBox");
+        const itemList = document.getElementById("itemList");
+
+        // Function to display items
+        function renderList(data) {
+            itemList.innerHTML = "";
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                itemList.appendChild(li);
+            });
+        }
+
+        // Initial render
+        renderList(items);
+
+        // Live search
+        searchBox.addEventListener("input", () => {
+
+            const searchText =
+                searchBox.value.toLowerCase();
+
+            const filteredItems =
+                items.filter(item =>
+                    item.toLowerCase().includes(searchText)
+                );
+
+            renderList(filteredItems);
+        });
+    </script>
+</body>
+</html>
