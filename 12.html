@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Modal</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-open {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-close {
+            background: #ef4444;
+            color: white;
+            margin-top: 16px;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="openBtn" class="btn btn-open">Open Modal</button>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Popup Modal</h2>
+            <p>Click outside or press to close.</p>
+            <button id="closeBtn" class="btn btn-close">Close Modal</button>
+        </div>
+    </div>
+    <script>
+        const open = document.getElementById('openBtn');
+        const close = document.getElementById('closeBtn');
+        const modal = document.getElementById('modal');
+
+        open.addEventListener('click',function(){
+            modal.classList.remove('hidden');
+        })
+        modal.addEventListener('click',(event)=>{
+            if(event.target===modal){  //Event Delegation
+                modal.classList.add("hidden");
+            }
+        });
+        close.addEventListener('click',()=>{
+            modal.classList.add('hidden');
+        })
+    </script>
+</body>
+</html>

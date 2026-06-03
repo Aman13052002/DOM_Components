@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 12px;
+        }
+
+        button {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+        <form id="signupForm">
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="email" title="Enter your email address" placeholder="you@example.com" aria-label="Email">
+            <div id="emailError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" title="Enter your password" placeholder="Password" aria-label="Password">
+            <div id="passwordError" class="error"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+
+        <div id="successMessage" class="success"></div>
+        </form>
+        <script>
+            const form = document.getElementById('signupForm');
+            form.addEventListener('submit',function(e){
+                e.preventDefault();
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const emailError = document.getElementById('emailError');
+                const passwordError = document.getElementById('passwordError');
+                const successMessage = document.getElementById('successMessage');
+                
+                emailError.textContent = "";
+                passwordError.textContent = "";
+                successMessage.textContent = "";
+
+                let isValid = true;
+                if(email===""){
+                    emailError.textContent = "Email is required";
+                    isValid = false;
+                }
+
+                if(password===""){
+                    passwordError.textContent = "Password is required";
+                    isValid = false;
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(email!=="" && !emailPattern.test(email)){
+                    emailError.textContent = "Enter a valid email address";
+                    isValid = false;
+                }
+
+                if(password!=="" && password.length<8){
+                    passwordError.textContent = "password must be at least 8 characters";
+                    isValid = false;
+                }
+
+                if(isValid){
+                    successMessage.textContent = "Form Submitted Successfully!";
+                }
+            })
+        </script>
+</body>
+</html>
