@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 15px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tabs Component</h2>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('home')">Home</button>
+        <button class="tab-btn" onclick="showTab('about')">About</button>
+        <button class="tab-btn" onclick="showTab('contact')">Contact</button>
+    </div>
+
+    <div id="home" class="tab-content active">
+        <h3>Home</h3>
+        <p>Welcome to the Home page.</p>
+    </div>
+
+    <div id="about" class="tab-content">
+        <h3>About</h3>
+        <p>This is the About page.</p>
+    </div>
+
+    <div id="contact" class="tab-content">
+        <h3>Contact</h3>
+        <p>You can contact us at contact@example.com.</p>
+    </div>
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Highlight selected button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
