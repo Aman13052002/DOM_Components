@@ -77,9 +77,7 @@
         card.classList.add('card');
         card.dataset.symbol = symbol;
         card.textContent = symbol;
-
         card.addEventListener('click', flipCard);
-
         board.appendChild(card);
     });
 
@@ -91,18 +89,14 @@
         ) {
             return;
         }
-
         this.classList.add('flipped');
-
         if (!firstCard) {
             firstCard = this;
             return;
         }
-
         secondCard = this;
         moves++;
         movesDisplay.textContent = `Moves: ${moves}`;
-
         checkMatch();
     }
 
@@ -114,11 +108,8 @@
         if (isMatch) {
             firstCard.classList.add('matched');
             secondCard.classList.add('matched');
-
             matchedPairs++;
-
             resetSelection();
-
             if (matchedPairs === symbols.length / 2) {
                 setTimeout(() => {
                     alert(`You won in ${moves} moves!`);
@@ -126,7 +117,6 @@
             }
         } else {
             lockBoard = true;
-
             setTimeout(() => {
                 firstCard.classList.remove('flipped');
                 secondCard.classList.remove('flipped');
