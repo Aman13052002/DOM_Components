@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splitwise</title>
+</head>
+<body>
+    <h1>SplitWise</h1>
+    <label for="name">Name: <input type="text" id="name" placeholder="Enter name"></label>
+    <label for="amount">Amount: <input type="number" id="amount" placeholder="Enter amount"></label>
+    <button id="addBtn">Add Expense</button>
+    <button id="splitBtn">Split Expense</button>
+    <h2>Expenses</h2>
+    <ul id="expenseList"></ul>
+    <h2 id="result"></h2>
+    <script>
+        const nameInput = document.getElementById('name');
+        const amountInput = document.getElementById('amount');
+        const addBtn = document.getElementById('addBtn');
+        const splitBtn = document.getElementById('splitBtn');
+        const expenseList = document.getElementById('expenseList');
+        const result = document.getElementById('result');
+
+        let expenses = [];
+        addBtn.addEventListener('click',()=>{
+            const name = nameInput.value.trim();
+            const amount = Number(amountInput.value);
+            if(name==="" || amount<=0){
+                alert("Enter valid data");
+                return;
+            } 
+            expenses.push({name,amount});
+            renderExpenses();
+            nameInput.value = "";
+            amountInput.value = "";
+        });
+
+        function renderExpenses(){
+            expenseList.innerHTML = "";
+            expenses.forEach(person=>{
+                expenseList.innerHTML += `<li>${person.name} paid ${person.amount}</li>`;
+            });
+        }
+
+        splitBtn.addEventListener('click',()=>{
+            if(expenses.length===0){
+                return;
+            }
+            let total = 0;
+            expenses.forEach(person=>{
+                total += person.amount;
+            });
+            const share = total/expenses.length;
+            result.innerHTML = `Total: Rs.${total} <br> Each person Pays: Rs.${share}`;
+        });
+    </script>
+</body>
+</html>

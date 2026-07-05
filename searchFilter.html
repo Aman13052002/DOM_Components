@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Names</h2>
+        <input type="text" id="searchBox" placeholder="Enter the name...">
+        <ul class="nameList">
+            <li>Aman Kumar</li>
+            <li>Rahul Sharma</li>
+            <li>Priya Singh</li>
+            <li>Ankit Verma</li>
+            <li>Neha Gupta</li>
+            <li>Charlie Spring</li>
+            <li>Simran Kaur</li>
+            <li>Kit Connor</li>
+            <li>Joe Locke</li>
+            <li>Nick Nelson</li>
+        </ul>
+    </div>
+
+    <script>
+        const searchBox = document.querySelector('#searchBox');
+        const names = document.querySelectorAll('.nameList li');
+
+        searchBox.addEventListener('input',()=>{
+            console.log(searchBox.value);
+            const searchText = searchBox.value.toLowerCase();
+            names.forEach((name)=>{
+                const text = name.textContent.toLowerCase();
+                console.log(text);
+                if(text.includes(searchText)){
+                    name.style.display = "block"
+                }else{
+                    name.style.display = "none"
+                }
+            })
+        })
+    </script>
+</body>
+</html>

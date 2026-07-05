@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form Validation Interaction</h1>
+    <form action="">
+        <label for="name">Name: <input type="text" id="name" placeholder="Enter name"> </label>
+        <!-- <label for="age">Age: <input type="number" id="age" placeholder="Enter age"> </label> -->
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+    </form>
+    <h3>Total: <span id="count">0</span></h3>
+    <ul id="list"></ul>
+    <script>
+        const name = document.getElementById('name');
+        const btn = document.getElementById('submitBtn');
+        const count = document.getElementById('count');
+        const list = document.getElementById('list');
+
+        let students = [];  //state management
+
+        name.addEventListener('input',function(){
+            if(name.vale.length>0){
+                btn.disabled = false;
+            }else{
+                btn.disabled = true;
+            }
+        });
+
+        btn.addEventListener('click',()=>{
+            students.push(name.value);
+            list.innerHTML = "";
+            students.forEach(student=>{
+                list.innerHTML = `<li>${student}</li>`;
+            });
+            count.textContent = students.length;
+            name.value = "";
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

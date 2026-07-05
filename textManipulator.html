@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="text">Hello Aman!</h2>
+
+    <button id="upper">UPPERCASE</button>
+    <button id="lower">lowercase</button>
+    <button id="increase">A+</button>
+    <button id="changeColor">Color</button>
+    <script>
+        const text = document.getElementById("text");
+
+        upper.addEventListener("click", () => {
+            text.textContent = text.textContent.toUpperCase();
+        });
+
+        lower.addEventListener("click", () => {
+            text.textContent = text.textContent.toLowerCase();
+        });
+
+        increase.addEventListener("click", () => {
+            let size = parseInt(window.getComputedStyle(text).fontSize);
+            text.style.fontSize = size + 5 + "px";
+        });
+
+        changeColor.addEventListener("click", () => {
+            text.style.color = "crimson";
+        });
+    </script>
+</body>
+</html>

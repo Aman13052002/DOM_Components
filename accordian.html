@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .accordion {
+            width: 500px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .header:hover {
+            background-color: #2980b9;
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: max-height 0.3s ease;
+        }
+
+        .content p {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <div class="item">
+            <button class="header">Section 1</button>
+            <div class="content">
+                <p>This is the content of section 1.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <button class="header">Section 2</button>
+            <div class="content">
+                <p>This is the content of section 2.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <button class="header">Section 3</button>
+            <div class="content">
+                <p>This is the content of section 3.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const headers = document.querySelectorAll(".header");
+
+        headers.forEach(header => {
+            header.addEventListener("click", () => {
+                const content = header.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

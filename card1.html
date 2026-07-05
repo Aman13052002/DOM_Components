@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Like</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body,html{
+            height: 100vh;
+            background-color: cornflowerblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            height: 400px;
+            width: 350px;
+            border-radius: 10px;
+            background-color: white;
+            position: relative;
+        }
+        .card img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .card i{
+            color: #fff;
+            font-size: 75px;
+            opacity: 0.8;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            opacity: 0;
+            transition: transform ease 0.5s;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="girl">
+        <i class="ri-heart-3-fill"></i>
+    </div>
+    <script>
+        const card = document.querySelector('.card');
+        const love = document.querySelector('i');
+
+        card.addEventListener('dblclick',function(){
+            love.style.transform = 'translate(-50%,-50%) scale(1)';
+            love.style.opacity = 0.8;
+            // love.style.transform = 'translate(-50%,-50%) scale(1)';
+            setTimeout(()=>{
+                // love.style.transform = 'translate(-50%,-50%) scale(0)';
+                love.style.opacity = 0;
+            },3000);
+            setTimeout(()=>{
+                love.style.transform = 'translate(-50%,-50%) scale(2)';
+            },3000);
+        })
+    </script>
+</body>
+</html>

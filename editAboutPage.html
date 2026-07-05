@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="name">Aman Kumar</h2>
+    <p id="bio">Frontend Developer</p>
+
+    <input id="newName" placeholder="Name">
+    <input id="newBio" placeholder="Bio">
+
+    <button id="save">Save</button>
+    <script>
+        const fullname = document.getElementById('name');
+        const bio = document.getElementById('bio');
+        const newName = document.getElementById('newName');
+        const newBio = document.getElementById('newBio');
+        const save = document.querySelector('#save');
+        save.addEventListener("click", () => {
+            fullname.textContent = newName.value;
+            bio.textContent = newBio.value;
+        });
+    </script>
+    </body>
+</html>

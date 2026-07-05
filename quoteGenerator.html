@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="quote">Click button for quote</h2>
+    <button id="generate">Generate</button>
+    <script>
+        const quotes = [
+            "Success is not final.",
+            "Practice makes perfect.",
+            "Never stop learning.",
+            "Code. Debug. Repeat."
+        ];
+
+        const quote = document.getElementById('quote');
+
+        generate.addEventListener("click", () => {
+            const randomIndex =
+                Math.floor(Math.random() * quotes.length);
+
+            quote.textContent = quotes[randomIndex];
+        });
+    </script>
+</body>
+</html>

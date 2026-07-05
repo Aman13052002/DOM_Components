@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card2 Cursor</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy';
+            color: #fff;
+        }
+        body{
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            height: 100%;
+            width: 100%;
+            /* background-color: rgb(0,0,0); */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cursor{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: white;
+            mix-blend-mode: difference;
+            transition: all linear 0.5s;
+        }
+        h1{
+            font-size: 9vw;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="cursor"></div>
+        <h1>CodeWithHarry</h1>
+    </div>
+    <script>
+        const main = document.querySelector('.main');
+        const crsr = document.querySelector('.cursor');
+
+        main.addEventListener('mousemove',function(dets){
+            crsr.style.left = dets.x+"px";
+            crsr.style.top = dets.y+"px";
+        })
+    </script>
+</body>
+</html>

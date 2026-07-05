@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>🏆 Multi-Player Competition</h1>
+
+    <h2>Target Score: 20</h2>
+
+    <div>
+        <h3>Player 1</h3>
+        <p>Score: <span id="score1">0</span></p>
+        <button id="btn1">+1 Point</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <h3>Player 2</h3>
+        <p>Score: <span id="score2">0</span></p>
+        <button id="btn2">+1 Point</button>
+    </div>
+
+    <hr>
+
+    <h2 id="winner">Game In Progress...</h2>
+
+    <button id="reset">Reset Game</button>
+    <script>
+        const score1Text = document.getElementById("score1");
+        const score2Text = document.getElementById("score2");
+
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        const winnerText = document.getElementById("winner");
+        const resetBtn = document.getElementById("reset");
+
+        let score1 = 0;
+        let score2 = 0;
+
+        const target = 20;
+
+        function checkWinner() {
+
+            if (score1 >= target) {
+
+                winnerText.textContent =
+                    "🏆 Player 1 Wins!";
+
+                btn1.disabled = true;
+                btn2.disabled = true;
+            }
+
+            else if (score2 >= target) {
+
+                winnerText.textContent =
+                    "🏆 Player 2 Wins!";
+
+                btn1.disabled = true;
+                btn2.disabled = true;
+            }
+        }
+
+        btn1.addEventListener("click", () => {
+
+            score1++;
+
+            score1Text.textContent = score1;
+
+            checkWinner();
+        });
+
+        btn2.addEventListener("click", () => {
+
+            score2++;
+
+            score2Text.textContent = score2;
+
+            checkWinner();
+        });
+
+        resetBtn.addEventListener("click", () => {
+
+            score1 = 0;
+            score2 = 0;
+
+            score1Text.textContent = 0;
+            score2Text.textContent = 0;
+
+            winnerText.textContent =
+                "Game In Progress...";
+
+            btn1.disabled = false;
+            btn2.disabled = false;
+        });
+    </script>
+</body>
+</html>

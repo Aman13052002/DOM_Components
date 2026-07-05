@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .accordion {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        .question {
+            width: 100%;
+            padding: 15px;
+            background: steelblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            margin-top: 10px;
+            display: none;
+            padding: 15px;
+            background: #f4f4f4;
+        }
+
+        .answer.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+    <div class="item">
+        <button class="question">Section 1</button>
+        <div class="answer">
+            <p>Content for Section 1</p>
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question">Section 2</button>
+        <div class="answer">
+            <p>Content for Section 2</p>
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question">Section 3</button>
+        <div class="answer">
+            <p>Content for Section 3</p>
+        </div>
+    </div>
+</div>
+<script>
+    const accordion = document.querySelector(".accordion");
+        accordion.addEventListener("click", (e) => {
+            if (!e.target.classList.contains("question")) return;
+            const currentContent = e.target.nextElementSibling;
+            document.querySelectorAll(".question").forEach(content => {
+                if (content !== currentContent) {
+                    content.classList.remove("active");
+                }
+            });
+            currentContent.classList.toggle("active");
+        });
+</script>
+</body>
+</html>

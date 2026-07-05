@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            cursor: pointer;
+        }
+        #star{
+            height: 20px;
+            width: 20px;
+            background-color: gray;
+            transition: 0.2s;
+            border: none;
+            margin: 10px;
+        }
+        #star:active{
+            background-color: gold;
+        }
+        p{
+            font-size: 30px;
+            font-weight: 400;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span id="star" data-index="1"></span>
+        <span id="star" data-index="2"></span>
+        <span id="star" data-index="3"></span>
+        <span id="star" data-index="4"></span>
+        <span id="star" data-index="5"></span>
+    </div>
+     <p>Selected Rating: <span id="rating">0</span></p>
+
+     <script>
+        const container = document.getElementsByClassName('container');
+        const star = document.getElementById('star');
+        const rating = document.getElementById('rating');
+
+        container.addEventListener('click',(event)=>{
+            if (!event.target.classList.contains("star")) {
+                return;
+            }
+
+            const selectedStar = Number(event.target.dataset.index);
+
+            for (let i = 0; i < star.length; i++) {
+
+                if (i < selectedStar) {
+                    star[i].classList.add("active");
+                } else {
+                    star[i].classList.remove("active");
+                }
+            }
+            rating.textContent = selectedStar;
+        })
+     </script>
+</body>
+</html>
