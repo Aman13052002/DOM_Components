@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dropdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .dropdown {
+            width: 220px;
+            position: relative;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: white;
+        }
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background: #f2f2f2;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="dropdown">
+        <button id="dropdownBtn">Select an option</button>
+        <ul id="dropdownList" class="hidden">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+            <li>React</li>
+            <li>NodeJs</li>
+        </ul>
+    </div>
+    <script>
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownList = document.getElementById('dropdownList');
+        dropdownBtn.addEventListener('click',()=>{
+            dropdownList.classList.toggle('hidden');
+        });
+
+        dropdownList.addEventListener('click',(event)=>{
+            if(event.target.tagName==="LI"){
+                dropdownBtn.textContent = event.target.textContent + " ▼";
+                dropdownList.classList.add('hidden')
+            }
+        })
+    </script>
 </body>
 </html>
