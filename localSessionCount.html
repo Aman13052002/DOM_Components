@@ -4,8 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:400px;
+            margin:80px auto;
+            text-align:center;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin:20px 0;
+            border-radius:8px;
+            box-shadow:0 0 8px rgba(0,0,0,.2);
+        }
+
+        .card p{
+            font-size:30px;
+            font-weight:bold;
+            color:steelblue;
+        }
+
+        button{
+            padding:12px 25px;
+            font-size:16px;
+            cursor:pointer;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Data Persistence Counter</h1>
+        <div class="card">
+            <h2>Local Storage Count</h2>
+            <p id="localCount">0</p>
+        </div>
+        <div class="card">
+            <h2>Sessions Storage Count</h2>
+            <p id="sessionCount">0</p>
+        </div>
+        <button id="clearBtn">Clear Data</button>
+    </div>
+
+
+    <script>
+        const localDisplay = document.getElementById('localCount');
+        const sessionDisplay = document.getElementById('sessionCount');
+        const clearBtn = document.getElementById('clearBtn');
+
+       let localCount = Number(localStorage.getItem('localVisits')) || 0;
+       localCount++;
+       localStorage.setItem('localVisits',localCount);
+       
+       
+       let sessionCount = Number(sessionStorage.getItem('sessionCount')) || 0;
+       sessionCount++;
+       sessionStorage.setItem('sessionVisits',sessionCount);
+
+
+       localDisplay.textContent = localCount;
+       sessionDisplay.textContent = sessionCount;
+
+       clearBtn.addEventListener('click',()=>{
+        localStorage.clear();
+        sessionStorage.clear();
+
+        localDisplay.textContent = 0;
+        sessionDisplay.textContent = 0;
+       });
+
+    </script>
 </body>
 </html>
